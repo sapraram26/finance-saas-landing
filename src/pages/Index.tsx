@@ -1,9 +1,9 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import FeatureSection from '../components/FeatureSection';
 import FooterSection from '../components/FooterSection';
+import { useAuth } from '@clerk/clerk-react';
 
 const Index = () => {
   useEffect(() => {
@@ -34,8 +34,10 @@ const Index = () => {
     }
   }, []);
 
+  const { isSignedIn } = useAuth();
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#0a101f]">
       <Navbar />
       <main className="flex-grow">
         <HeroSection />

@@ -26,17 +26,17 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				finance: {
-					50: '#f5f7fa',
-					100: '#ebeef3',
-					200: '#d9dfe8',
-					300: '#b9c5d8',
-					400: '#94a5c4',
-					500: '#7589b3',
-					600: '#5d6fa3',
-					700: '#4f5e93',
-					800: '#435079',
-					900: '#394463',
-					950: '#242a3d',
+					50: '#f0f4f8',
+					100: '#d9e2ec',
+					200: '#bcccdc',
+					300: '#9fb3c8',
+					400: '#829ab1',
+					500: '#627d98',
+					600: '#486581',
+					700: '#334e68',
+					800: '#243b53',
+					900: '#102a43',
+					950: '#0b1c2d',
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -118,6 +118,14 @@ export default {
 				'pulse-soft': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
+				},
+				'gradient-x': {
+					'0%, 100%': { 
+						'background-position': '0% 50%'
+					},
+					'50%': {
+						'background-position': '100% 50%'
+					}
 				}
 			},
 			animation: {
@@ -129,7 +137,8 @@ export default {
 				'slide-down': 'slide-down 0.5s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
 				'float': 'float 5s ease-in-out infinite',
-				'pulse-soft': 'pulse-soft 3s ease-in-out infinite'
+				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
+				'gradient-x': 'gradient-x 15s ease infinite'
 			},
 			backdropBlur: {
 				xs: '2px',
