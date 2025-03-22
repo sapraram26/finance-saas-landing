@@ -1,38 +1,45 @@
 
 import React from 'react';
-import { ChevronRight, BarChart3, PieChart, LineChart, TrendingUp, Eye, Settings, CircleDollarSign, BarChart2, Wallet, Users, Lock, ArrowUpRight } from 'lucide-react';
+import { ChevronRight, BarChart3, PieChart, LineChart, TrendingUp, Eye, Settings, CircleDollarSign, BarChart2, Wallet, Users, Lock, ArrowUpRight, ExternalLink } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import { Link } from 'react-router-dom';
 
 const features = [
   {
     icon: <BarChart3 className="h-6 w-6" />,
     title: 'Advanced Analytics',
-    description: 'Gain comprehensive insights with interactive charts and customizable dashboards.'
+    description: 'Gain comprehensive insights with interactive charts and customizable dashboards.',
+    link: '/analytics'
   },
   {
     icon: <TrendingUp className="h-6 w-6" />,
     title: 'Predictive Forecasting',
-    description: 'Leverage AI to predict market trends and optimize your investment strategy.'
+    description: 'Leverage AI to predict market trends and optimize your investment strategy.',
+    link: '/forecasting'
   },
   {
     icon: <CircleDollarSign className="h-6 w-6" />,
     title: 'Expense Tracking',
-    description: 'Automatically categorize and monitor expenses to maintain financial discipline.'
+    description: 'Automatically categorize and monitor expenses to maintain financial discipline.',
+    link: '/expenses'
   },
   {
     icon: <Wallet className="h-6 w-6" />,
     title: 'Portfolio Management',
-    description: 'Manage all your investments in one place with real-time performance monitoring.'
+    description: 'Manage all your investments in one place with real-time performance monitoring.',
+    link: '/portfolio'
   },
   {
     icon: <Users className="h-6 w-6" />,
     title: 'Team Collaboration',
-    description: 'Work together with team members through shared dashboards and reports.'
+    description: 'Work together with team members through shared dashboards and reports.',
+    link: '/collaboration'
   },
   {
     icon: <Lock className="h-6 w-6" />,
     title: 'Bank-Level Security',
-    description: 'Rest easy with encrypted data storage and multi-factor authentication.'
+    description: 'Rest easy with encrypted data storage and multi-factor authentication.',
+    link: '/security'
   }
 ];
 
@@ -71,9 +78,12 @@ const FeatureSection = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 {feature.description}
               </p>
-              <a href="#" className="inline-flex items-center text-sm font-medium text-primary">
-                Learn more <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              <Link 
+                to={feature.link} 
+                className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+              >
+                Learn more <ExternalLink className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </AnimatedCard>
           ))}
         </div>
