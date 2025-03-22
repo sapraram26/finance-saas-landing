@@ -7,14 +7,14 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
@@ -37,25 +37,27 @@
 
     --radius: 0.75rem;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-accent: 222 47% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 47% 14%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border selection:bg-white/10 selection:text-white;
+    @apply border-border selection:bg-primary/20 selection:text-white;
   }
 
   body {
     @apply bg-background text-foreground font-sans dark;
     font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, hsl(222, 47%, 8%), hsl(222, 47%, 11%));
+    min-height: 100vh;
   }
 
   /* Smooth scrolling */
@@ -71,6 +73,19 @@
 
 .neo-morphism {
   @apply bg-black/40 shadow-[6px_6px_12px_0px_rgba(0,0,0,0.2),-6px_-6px_12px_0px_rgba(255,255,255,0.02)];
+}
+
+/* Data visualization styling */
+.chart-grid line {
+  @apply stroke-white/10;
+}
+
+.chart-axis text {
+  @apply fill-gray-400 text-xs;
+}
+
+.chart-tooltip {
+  @apply bg-gray-800/90 backdrop-blur-md border border-gray-700 shadow-xl rounded-lg p-2 text-xs;
 }
 
 /* Animation delays */
@@ -119,9 +134,71 @@
 
 /* Animated background */
 .animated-gradient {
-  @apply bg-gradient-to-r from-blue-900 via-gray-900 to-indigo-900 bg-size-200 animate-gradient-x;
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #172554, #312e81);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Terminal text animation */
+.terminal-text::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Data flow animation */
+.data-flow {
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: data-flow-animation 2s linear infinite;
+}
+
+@keyframes data-flow-animation {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .bg-size-200 {
   background-size: 200% 200%;
+}
+
+/* Glow effect */
+.glow {
+  filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+}
+
+.glow-text {
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
 }

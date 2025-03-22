@@ -126,6 +126,42 @@ export default {
 					'50%': {
 						'background-position': '100% 50%'
 					}
+				},
+				'shimmer': {
+					'0%': {
+						'background-position': '-1000px 0',
+					},
+					'100%': {
+						'background-position': '1000px 0',
+					},
+				},
+				'matrix-effect': {
+					'0%': { 
+						transform: 'translateY(0)',
+						opacity: '1' 
+					},
+					'100%': { 
+						transform: 'translateY(100px)',
+						opacity: '0' 
+					}
+				},
+				'typing': {
+					'from': { width: '0' },
+					'to': { width: '100%' }
+				},
+				'blink-caret': {
+					'from, to': { borderColor: 'transparent' },
+					'50%': { borderColor: 'white' }
+				},
+				'rotate-glow': {
+					'0%': { 
+						transform: 'rotate(0deg)',
+						filter: 'hue-rotate(0deg) brightness(1)',
+					},
+					'100%': { 
+						transform: 'rotate(360deg)',
+						filter: 'hue-rotate(360deg) brightness(1.5)',
+					}
 				}
 			},
 			animation: {
@@ -138,10 +174,21 @@ export default {
 				'scale-in': 'scale-in 0.5s ease-out',
 				'float': 'float 5s ease-in-out infinite',
 				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
-				'gradient-x': 'gradient-x 15s ease infinite'
+				'gradient-x': 'gradient-x 15s ease infinite',
+				'shimmer': 'shimmer 2s linear infinite',
+				'matrix-effect': 'matrix-effect 2s infinite',
+				'typing': 'typing 3.5s steps(30, end), blink-caret .75s step-end infinite',
+				'rotate-glow': 'rotate-glow 20s linear infinite'
 			},
 			backdropBlur: {
 				xs: '2px',
+			},
+			backgroundImage: {
+				'radial-gradient': 'radial-gradient(circle, var(--tw-gradient-stops))',
+				'conic-gradient': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic':
+					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 			}
 		}
 	},
